@@ -130,6 +130,7 @@ dist
 .pnp.*
 
 .vscode/
+.DS_Store
 
 # angular
 enviroment.prod.ts
