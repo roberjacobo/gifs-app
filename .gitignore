@@ -133,5 +133,6 @@ dist
 .DS_Store
 
 # angular
-enviroment.prod.ts
+environment.development.ts
+environment.ts
 .angular/
