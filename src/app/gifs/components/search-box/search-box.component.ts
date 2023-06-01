@@ -29,8 +29,9 @@ export class SearchBoxComponent {
 
   onKeyUp(event: Event) {
     const keyboardEvent = event as KeyboardEvent;
-    if (keyboardEvent.key === "Enter") {
+    if (keyboardEvent.key === "Enter" || keyboardEvent.key === "Return") {
       this.searchTag();
     }
   }
+
 }
