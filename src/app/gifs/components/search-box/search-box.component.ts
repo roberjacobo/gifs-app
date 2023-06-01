@@ -9,7 +9,7 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
       type="text"
       class="form-control"
       placeholder="Buscar gifs..."
-      (keyup.enter)="searchTag()"
+      (keyup.enter)="onKeyUp($event)"
       #txtTagInput
     />
   `,
@@ -25,5 +25,12 @@ export class SearchBoxComponent {
 
     this.gifsService.searchTag(newTag);
     this.tagInput.nativeElement.value = "";
+  }
+
+  onKeyUp(event: Event) {
+    const keyboardEvent = event as KeyboardEvent;
+    if (keyboardEvent.key === "Enter") {
+      this.searchTag();
+    }
   }
 }
