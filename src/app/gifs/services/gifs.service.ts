@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { env } from "../../../enviroments/enviroment.prod";
+import { environment } from "../../../environments//environment";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { SearchResponse, Gif } from "../interfaces/gifs.interfaces";
 
@@ -8,8 +8,8 @@ export class GifsService {
   public gifList: Gif[] = [];
 
   private _tagsHistory: string[] = [];
-  private apiKey: string = env.apiKey;
-  private serviceUrl: string = env.apiUrl;
+  private apiKey: string = environment.apiKey;
+  private serviceUrl: string = environment.apiUrl;
 
   constructor(private http: HttpClient) {
     this.loadLocalStorage();
