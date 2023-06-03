@@ -1,12 +1,14 @@
 <div>
-  <div class="card mb-2 text-center bg-dark">
-    <img
-      [src]="gif.images.downsized_medium.url"
-      alt="gif.title"
-      class="card-img-top"
-    />
-    <div class="card-body">
-      <p class="card-text" style="color: #f8f8ff">{{ gif.title }}</p>
+  <div class="card mb-2 text-center bg-dark" style="transition: all 3s ease-in-out">
+    <lazy-image
+      [url]="gif.images.downsized_medium.url"
+      [alt]="gif.title || 'No name'"
+      style="transition: all 3s ease-in-out"
+    ></lazy-image>
+    <div *ngIf="gif.title" class="card-body">
+      <p class="card-text" style="color: #f8f8ff">
+        {{ gif.title || "No title" }}
+      </p>
     </div>
   </div>
 </div>

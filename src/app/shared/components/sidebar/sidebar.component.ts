@@ -19,4 +19,8 @@ export class SidebarComponent {
     if (tag === this.gifsService.tagsHistory[0]) return;
     this.gifsService.searchTag(tag);
   }
+
+  removeElementFromHistory(tag: string): void {
+    this.gifsService.deleteElementInHistory(tag);
+  }
 }

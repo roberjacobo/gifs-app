@@ -13,14 +13,14 @@ export class GifsService {
 
   constructor(private http: HttpClient) {
     this.loadLocalStorage();
-    console.log("Gifs Service Ready");
+    console.info("Gifs Service Ready");
   }
 
   get tagsHistory() {
     return [...this._tagsHistory];
   }
 
-  private organizeHistory(tag: string) {
+  private organizeHistory(tag: string): void {
     tag = tag.toLowerCase();
     if (this._tagsHistory.includes(tag)) {
       this._tagsHistory = this._tagsHistory.filter((oldTag) => oldTag !== tag);
@@ -29,6 +29,11 @@ export class GifsService {
     this._tagsHistory.unshift(tag);
     this._tagsHistory = this.tagsHistory.splice(0, 10);
     this.saveLocalStorage();
+  }
+
+  deleteElementInHistory(tag: string): void {
+    this._tagsHistory = this._tagsHistory.filter((oldTag) => oldTag !== tag);
+    localStorage.setItem("history", JSON.stringify(this._tagsHistory));
   }
 
   private saveLocalStorage(): void {

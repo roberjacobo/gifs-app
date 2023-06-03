@@ -4,11 +4,11 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
 @Component({
   selector: "gifs-search-box",
   template: `
-    <h5>Buscar:</h5>
+    <h5>Search:</h5>
     <input
       type="text"
       class="form-control"
-      placeholder="Buscar gifs..."
+      placeholder="Search gifs..."
       (keyup.enter)="onKeyUp($event)"
       #txtTagInput
     />
