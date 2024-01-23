@@ -4,12 +4,12 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
 @Component({
   selector: "gifs-search-box",
   template: `
-    <h5>Buscar:</h5>
+    <h5>Search:</h5>
     <input
       type="text"
       class="form-control"
-      placeholder="Buscar gifs..."
-      (keyup.enter)="searchTag()"
+      placeholder="Search gifs..."
+      (keyup.enter)="onKeyUp($event)"
       #txtTagInput
     />
   `,
@@ -26,4 +26,12 @@ export class SearchBoxComponent {
     this.gifsService.searchTag(newTag);
     this.tagInput.nativeElement.value = "";
   }
+
+  onKeyUp(event: Event) {
+    const keyboardEvent = event as KeyboardEvent;
+    if (keyboardEvent.key === "Enter" || keyboardEvent.key === "Return") {
+      this.searchTag();
+    }
+  }
+
 }
